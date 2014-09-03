@@ -9,7 +9,7 @@ void graphicObjects::inititObj(point pos, float speed, char dir, int fLR, int fL
     _graphRight.append(graphicChar(point(1,0),'>'));
     //Left Graphic
     _graphLeft.append(graphicChar(point(0,0),'<'));
-    _graphLeft.append(graphicChar(point(0,1),'?'));
+    _graphLeft.append(graphicChar(point(1,0),'?'));
     //Down Graphic
     _graphDown.append(graphicChar(point(0,0),'?'));
     _graphDown.append(graphicChar(point(0,1),'V'));
@@ -115,19 +115,19 @@ int graphicObjects::tic(double time)
     switch(_direction)
     {
     case DIR_LEFT:
-        if(static_cast<int>(newPos.x()) +_edgeLeft <= _fieldLimitLeft)
+        if(newPos.xInt() +_edgeLeft <= _fieldLimitLeft)
             objInside=false;
         break;
     case DIR_RIGHT:
-        if(static_cast<int>(newPos.x()) + _edgeRight >= _fieldLimtRight)
+        if(newPos.xInt() + _edgeRight >= _fieldLimtRight)
             objInside=false;
         break;
     case DIR_DOWN:
-        if(static_cast<int>(newPos.y())+_edgeBot >=_fieldLimitBot)
+        if(newPos.yInt()+_edgeBot >=_fieldLimitBot)
             objInside=false;
         break;
     case DIR_UP:
-        if(static_cast<int>(newPos.y())<=_fieldLimitTop)
+        if(newPos.yInt()<=_fieldLimitTop)
             objInside=false;
         break;
     default:

@@ -90,6 +90,12 @@ int main(int argc, char *argv[])
 
     pruebas.append(p);
 
+    p.setDir(DIR_LEFT);
+    p.setSpeed(0.006);
+    p.setPos(40,10);
+
+    pruebas.append(p);
+
 
     for(;;)
     {
