@@ -2,6 +2,7 @@
 #include "consoleTools/basicGraphic/basicgraphic.h"
 #include "graphicchar.h"
 #include "graphicobjects.h"
+#include "ship.h"
 
 int main(int argc, char *argv[])
 {
@@ -62,39 +63,10 @@ int main(int argc, char *argv[])
 
 
 
-    QList<graphicObjects> pruebas;
-
-    graphicObjects p;
-    p.setFieldLimits(50,0,0,30);
-    p.setDir(DIR_RIGHT);
-    p.setSpeed(0.004);
-    p.setPos(3,3);
-
-    pruebas.append(p);
-
-    p.setDir(DIR_DOWN);
-    p.setSpeed(0.001);
-    p.setPos(30,3);
-
-    pruebas.append(p);
-
-    p.setDir(DIR_UP);
-    p.setSpeed(0.002);
-    p.setPos(6,25);
-
-    pruebas.append(p);
-
-    p.setDir(DIR_RIGHT);
-    p.setSpeed(0.003);
-    p.setPos(8,4);
-
-    pruebas.append(p);
-
-    p.setDir(DIR_LEFT);
-    p.setSpeed(0.006);
-    p.setPos(40,10);
-
-    pruebas.append(p);
+    QList<graphicObjects*> pruebas;
+    pruebas.append(new graphicObjects(point(5,5), 0.001, DIR_RIGHT, 50,0,0,30));
+    pruebas.append(new graphicObjects(point(5,8), 0.003, DIR_RIGHT, 50,0,0,30));
+    pruebas.append(new ship(point(5,10), 0.007, DIR_RIGHT, 50,0,0,30));
 
 
     for(;;)
@@ -102,8 +74,8 @@ int main(int argc, char *argv[])
         bg::clrscr();
         for(int i=0; i<pruebas.size(); i++)
         {
-            pruebas[i].paint();
-            pruebas[i].tic(300);
+            pruebas[i]->paint();
+            pruebas[i]->tic(300);
         }
         Sleep(300);
     }

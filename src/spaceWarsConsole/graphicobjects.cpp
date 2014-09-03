@@ -42,6 +42,26 @@ void graphicObjects::inititObj(point pos, float speed, char dir, int fLR, int fL
     setFieldLimits(fLR,fLL,fLT,fLB);
 }
 
+void graphicObjects::fillHitArea()
+{
+    _hitAreaRight.clear();
+    for(int i=0;i<_graphRight.size();i++)
+        _hitAreaRight.append(_graphRight[i].pos());
+
+    _hitAreaLeft.clear();
+    for(int i=0; i<_graphLeft.size(); i++)
+        _hitAreaLeft.append(_graphLeft[i].pos());
+
+    _hitAreaDown.clear();
+    for(int i=0; i<_graphDown.size();i++)
+        _hitAreaDown.append(_graphDown[i].pos());
+
+    _hitAreaUp.clear();
+    for(int i=0; i<_graphUp.size();i++)
+        _hitAreaUp.append(_graphUp[i].pos());
+
+}
+
 graphicObjects::graphicObjects()
 {
     //Set default parameters

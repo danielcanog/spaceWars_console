@@ -19,23 +19,17 @@ private:
     //Object position  (top left corner position)
     point _pos;
 
-    // one graphic for each direction
-    QList <graphicChar> _graphRight, _graphLeft, _graphUp, _graphDown;
-
     //Object speed
     float _speed;
 
     //Moving field or universe limits
     int _fieldLimtRight, _fieldLimitLeft, _fieldLimitTop, _fieldLimitBot;
 
-    //Hit area for each direction
-    QList <point> _hitAreaRight, _hitAreaLeft, _hitAreaUp, _hitAreaDown;
+
 
     //Object limits
     int _edgeRight, _edgeLeft, _edgeTop, _edgeBot;
 
-    //Colision power
-    int _hitPower;
 
 
 protected:
@@ -44,6 +38,19 @@ protected:
     //This function must be executed in any constructor
     void inititObj(point pos, float speed, char dir, int fLR, int fLL, int fLT, int fLB);
 
+
+    //This function fills the hit areas with the same positions of the graphics chars
+    void fillHitArea();
+
+
+    // one graphic for each direction
+    QList <graphicChar> _graphRight, _graphLeft, _graphUp, _graphDown;
+
+    //Colision power
+    int _hitPower;
+
+    //Hit area for each direction
+    QList <point> _hitAreaRight, _hitAreaLeft, _hitAreaUp, _hitAreaDown;
 
 public:
     /// \brief  Initialize object with empty parameters

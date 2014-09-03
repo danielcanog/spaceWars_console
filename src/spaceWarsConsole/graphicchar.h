@@ -28,6 +28,9 @@ public:
     ///  \return 0 if painting process end Ok. errorCode if an error occur.
     int paint(point offset);
 
+    /// \brief Get position
+    point pos(){return _pos;}
+
 };
 
 #endif // GRAPHICCHAR_H
