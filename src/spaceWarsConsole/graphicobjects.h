@@ -13,14 +13,12 @@
 class graphicObjects
 {
 private:
-    // 0:RIGHT,1:UP,2:LEFT,3:DOWN
-    char _direction;
+
 
     //Object position  (top left corner position)
     point _pos;
 
-    //Object speed
-    float _speed;
+
 
     //Moving field or universe limits
     int _fieldLimtRight, _fieldLimitLeft, _fieldLimitTop, _fieldLimitBot;
@@ -51,6 +49,12 @@ protected:
 
     //Hit area for each direction
     QList <point> _hitAreaRight, _hitAreaLeft, _hitAreaUp, _hitAreaDown;
+
+    //Object speed
+    float _speed;
+
+    // 0:RIGHT,1:UP,2:LEFT,3:DOWN
+    char _direction;
 
 public:
     /// \brief  Initialize object with empty parameters

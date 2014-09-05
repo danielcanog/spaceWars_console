@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 #include "consoleTools/basicGraphic/basicgraphic.h"
 #include "graphicchar.h"
 #include "graphicobjects.h"
@@ -63,52 +64,47 @@ int main(int argc, char *argv[])
 
 
 
-    QList<graphicObjects*> pruebas;
-    pruebas.append(new graphicObjects(point(5,5), 0.001, DIR_RIGHT, 50,0,0,30));
-    pruebas.append(new graphicObjects(point(5,8), 0.003, DIR_RIGHT, 50,0,0,30));
-    pruebas.append(new ship(point(5,10), 0.007, DIR_RIGHT, 50,0,0,30));
+//    QList<graphicObjects*> pruebas;
+//    pruebas.append(new graphicObjects(point(5,5), 0.001, DIR_RIGHT, 50,0,0,30));
+//    pruebas.append(new graphicObjects(point(5,8), 0.003, DIR_RIGHT, 50,0,0,30));
+//    pruebas.append(new ship(point(5,10), 0.007, DIR_RIGHT, 50,0,0,30));
 
+
+//    for(;;)
+//    {
+//        bg::clrscr();
+//        for(int i=0; i<pruebas.size(); i++)
+//        {
+//            pruebas[i]->paint();
+//            pruebas[i]->tic(300);
+//        }
+//        Sleep(300);
+//    }
+
+
+
+
+    QList<ship> gos;
+    gos.append(ship(point(5,5),0.0,DIR_RIGHT,70,0,0,30));
+    gos.last().confCmd('w','s','d','a',' ','m');
+    gos.append(ship(point(5,10),0.0,DIR_RIGHT,70,0,0,30));
+    gos.last().confCmd('5','2','3','1','0','.');
 
     for(;;)
     {
         bg::clrscr();
-        for(int i=0; i<pruebas.size(); i++)
+        int k;
+        k= (_kbhit()!= 0)? _getch() : -1;
+
+        for(int i=0;i<gos.size();i++)
         {
-            pruebas[i]->paint();
-            pruebas[i]->tic(300);
+            if(k != -1)
+                gos[i].recvCmd(k);
+            gos[i].paint();
+            gos[i].tic(100);
         }
-        Sleep(300);
+        Sleep(100);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
