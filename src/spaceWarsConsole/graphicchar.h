@@ -25,7 +25,7 @@ public:
     /// \brief Paint itself with a relative offset.
     ///
     /// \param[in] offset painting offset
-    ///  \return 0 if painting process end Ok. errorCode if an error occur.
+    /// \return 0 if painting process end Ok. errorCode if an error occur.
     int paint(point offset);
 
     /// \brief Get position
